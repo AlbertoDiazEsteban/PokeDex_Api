@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+
+$color-dark: #373636;
+$color-blue: #8CD8E9;
+$color-transparent-white: rgba(255, 255, 255, 0);
+
+@mixin title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+  color: $color-dark;
+  
+}
+
+@mixin text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: $color-dark;
+}
+
+@mixin type {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: $color-dark;
+  color: white;
+  border-radius: 20px;
+  padding: 0%;
+  margin: auto;
+  width: 110px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    object-fit: cover;
+    box-sizing: border-box;
+}   
+
+.background {
+  background-image: url(/img/background.svg);
+  filter: brightness(150%);
+  filter: saturate(150%);
+  background-size: cover;
+  height: calc(105vh - 125px - 100px);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $color-dark;
+    animation: bg-animation 30s ease-in-out infinite alternate; 
+}
+
+@keyframes bg-animation {
+  from {
+    background-position-y: 0;
+  }
+  to {
+    background-position-y: -20px;
+  }
+}
+
+header {
+    background-color: $color-dark;
+    width: 100%;
+    height: 125px;
+    div {
+      display: flex;
+      flex-direction: row;
+      margin-top: 20px;
+      margin-left: 20px;
+      img {
+        margin-right: 8px;
+        width: 80px;
+        min-height: 80px;
+      }
+    }
+}
+
+footer {
+  background-color: $color-dark;
+  width: 100%;
+  height: 100px; 
+}
+
+
+
+.pokebutton {
+    position: absolute;
+    z-index: 1;
+    width: 200px;
+    height: 200px;
+     img {
+        margin-top: -75px;
+        margin-left: 120px;
+        max-width: 150px;
+        max-height: 150px;
+        z-index: 1;
+      }
+     img:hover {
+        animation: rotate 3s linear infinite;
+     }
+  }
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+        transform: rotate(2000deg);
+      } 
+}
+@media (max-width: 1300px) {
+  .pokebutton {
+    img {
+      margin-top: -40px;
+      margin-left: 50px;
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+
+.rotom-pc {
+  @include text;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+    img {
+    width: 1100px;
+    position: absolute;
+    }
+    #search {
+      padding-left: 20px;
+      background-image: url('/img/search.svg');
+      background-repeat: no-repeat;
+      background-position: left center;
+
+    }
+    input {
+      background-color: #e9e9e9;
+      border: none;
+      height: 50px;
+      width: 200px;
+      border-radius: 50px;
+      margin-left: -20px;
+    }
+    button {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      margin-top: -5px;
+      margin-left: 20px;
+      background-color: transparent;
+      border: none;
+        img {
+        width: 60px;
+        height: 60px;
+        background-color: transparent;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-color: transparent;
+        transition: transform 0.2s ease-in-out;
+        }
+    } 
+    button:active img {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+    .screen {
+      background-image: url(/img/background_rotom_pc.svg);
+      background-size: cover;
+      background-color: lightgray;
+      position: absolute;
+      width: 990px;
+      height: 550px;
+      border-radius: 40px;
+      top: -230px;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+        h2 {
+          font-size: 40px;
+          margin-top: 20px;
+        }
+        #data-pokemon {
+          margin: 10px;
+          padding: 20px;
+          text-align: center;
+          background-color: white;
+          border-radius: 10px 30px 30px 10px;
+        }
+        #img-pokemon {
+            img {
+            text-align: center;
+            max-width: 495px;
+            min-height: auto;
+            padding: 50px;
+            object-fit: cover;
+            align-items: center;
+            bottom: 0;
+            z-index: 5;
+            }
+        .shadow {
+            display: block;
+            position: absolute;
+            width: 250px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: #0000009c;
+            filter: blur(15px);
+            bottom: 40px;
+            left: 150px;
+              }
+        }
+        .type-container {
+          display: flex;
+          justify-content: center;
+          margin: 5px;
+            .type,
+            .type-secondary {
+            margin: 5px;
+            width: 90px;
+            color: white;
+            border-radius: 20px;
+            text-align: center;
+            align-items: center;
+          }
+        }
+        
+        #stats {
+          margin-top: 30px;
+          align-items: center;
+          .stat-row {
+            display: flex;
+            justify-content: space-around;
+            text-align: right;
+            align-items: center;
+            .stat-desc {
+              margin: 5px;
+            }
+            .stat-number {
+              margin: 5px;
+            }
+            .stat-bar {
+              margin-left: 10px;
+                width: 76%;
+                display: flex;
+                position: relative;
+                .bar-inner {
+                    height: 27px;
+                    position: absolute;
+                    border-radius: 20px;
+                }
+                .bar-outer {
+                    height: 27px;
+                    width: 255px;
+                    opacity: 0.5;
+                    border-radius: 20px;
+                    position: relative;
+                }
+            }
+        }
+        
+        }  
+    }
+}
+
+
+
+
